@@ -5,11 +5,20 @@ def main():
 
 
 def load_data():
+    """
+    Функция загружает данные из файла JSON
+    :return:
+    """
     with open("posts.json", encoding="utf-8") as file:
         return json.load(file)
 
 
 def find_posts(query):
+    """
+    Осуществляет поиск по постам
+    :param query: Запрос пользователся
+    :return: Список постов, в которых есть запрос
+    """
     matched_posts = []
     all_posts = load_data()
 
@@ -21,12 +30,22 @@ def find_posts(query):
 
 
 def get_pic_url(picture):
+    """
+    :param picture:
+    :return: Возвращает URL, по которому картинка сохраняется в папке
+    """
     filename = picture.filename
     pic_url = f"/uploads/images/{filename}"
     return pic_url
 
 
 def save_post(picture, content):
+    """
+    Сохраняет добавленный пост в JSON файл к остальным постам
+    :param picture:
+    :param content:
+    :return:
+    """
     # сохраняем картинку
     pic_url = get_pic_url(picture)
     picture.save("." + pic_url)

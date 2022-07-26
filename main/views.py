@@ -7,10 +7,16 @@ main_blueprint=Blueprint('main_blueprint', __name__, template_folder="templates"
 
 @main_blueprint.get("/")
 def main_page():
+    """
+    :return: возвращает главную страницу
+    """
     return render_template("index.html")
 
 @main_blueprint.get("/search/")
 def show_posts():
+    """
+    :return: возвращает список постов, которые соответствуют поиску
+    """
     query = request.args.get("s")
     logging.info(f"Выполнен поиск по запросу {query}")
     try:

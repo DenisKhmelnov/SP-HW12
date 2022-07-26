@@ -7,11 +7,17 @@ loader_blueprint=Blueprint('loader', __name__, template_folder="templates")
 
 @loader_blueprint.get("/post")
 def page_post_form():
+    """
+    :return: возвращает страницу добавления поста
+    """
     return render_template("post_form.html")
 
 
 @loader_blueprint.post("/post")
 def page_save_post():
+    """
+    :return: возвращает страницу с только что добавленным постом
+    """
     picture = request.files.get("picture")
     content = request.form.get("content")
 
