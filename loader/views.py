@@ -16,6 +16,8 @@ def page_save_post():
 
     if not picture or not content:
         return "Нет картинки или контента"
+    if picture.filename.split(".")[-1] not in ["jpg", "jpeg", "png"]:
+        return "Неверный формат файла"
 
     save_post(picture, content)
 

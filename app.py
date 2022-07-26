@@ -12,16 +12,6 @@ app.register_blueprint(main_blueprint)
 app.register_blueprint(loader_blueprint)
 
 
-@app.route("/post", methods=["GET", "POST"])
-def page_post_form():
-    pass
-
-
-@app.route("/post", methods=["POST"])
-def page_post_upload():
-    pass
-
-
 @app.route("/uploads/<path:path>")
 def static_dir(path):
     return send_from_directory("uploads", path)
